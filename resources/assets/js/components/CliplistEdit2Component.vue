@@ -87,7 +87,7 @@
             <div v-on:click="togglePlayer" class="togglebutton h6 text-white-50">再生時間設定 / コメント設定</div>
             <slide-up-down :active="active.player">
                 <div class="element">
-                    <div class="container-fluid">
+                    <div class="w-100">
                         <div class="text-center">
                             <youtube :video-id="currentClip.movie_id" ref="youtube" :player-vars="{autoplay: 1}" :width="800" :resize="true"></youtube>
                         </div>
@@ -172,7 +172,7 @@
 iframe {
   width: 100%;
   max-width: 2436px;
-  //height: 400px;
+  min-height: 280px;
 }
 </style>
 

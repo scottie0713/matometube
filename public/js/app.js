@@ -53085,7 +53085,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.togglefooter {\n    //background-color: #dadad8;\n}\niframe {\n  width: 100%;\n  max-width: 2436px;\n  //height: 400px;\n}\n", ""]);
+exports.push([module.i, "\n.togglefooter {\n    //background-color: #dadad8;\n}\niframe {\n  width: 100%;\n  max-width: 2436px;\n  min-height: 280px;\n}\n", ""]);
 
 // exports
 
@@ -54086,7 +54086,7 @@ var render = function() {
         _vm._v(" "),
         _c("slide-up-down", { attrs: { active: _vm.active.player } }, [
           _c("div", { staticClass: "element" }, [
-            _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "w-100" }, [
               _c(
                 "div",
                 { staticClass: "text-center" },

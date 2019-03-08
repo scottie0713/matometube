@@ -22,6 +22,7 @@
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">このサイトについて</h4>
               <p class="text-muted">好きな動画を見返す際に、長時間の動画で見たい場面のみ再生したいと考えました。そこで動画の好きな箇所を「クリップ」として登録し、それを連続再生する機能を作りました。</p>
+              <p class="text-warning">現在開発中です。動作が不安定な場合があります。</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Menu</h4>

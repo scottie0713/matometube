@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid">
+        <h5 class="text-light my-2"><a class="text-light" :href="'/'+ platform + '/' + platform_channel_id">&lt;</a>&nbsp;{{ cliplist.title }}</h5>
         <div class="row no-gutters">
             <div id="player" class="col-12 col-md-8 col-lg-9">
                 <youtube :video-id="videoId" ref="youtube" :player-vars="playerVars" :resize="true" @ended="next" @playing="playing"></youtube>
@@ -40,7 +41,7 @@
     import VueYoutube from 'vue-youtube'
     Vue.use(VueYoutube)
     export default {
-        props:['cliplist_id'],
+        props:['platform','platform_channel_id','cliplist_id'],
         created() {
             this.getCliplist()
         },

@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid">
-        <h5 class="text-light my-2">{{ cliplist.title }} 編集</h5>
+        <h5 class="text-light my-2"><a class="text-light" :href="'/'+ platform + '/' + platform_channel_id">&lt;</a>&nbsp;{{ cliplist.title }}</h5>
         <ul class="nav nav-pills">
           <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit1'" class="nav-link">名前編集</a></li>
-          <li class="nav-item"><div class="nav-link active">クリップ編集</div></li>
-          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit3'" class="nav-link">クリップ並び替え</a></li>
+          <li class="nav-item"><div class="nav-link active">クリップ</div></li>
+          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit3'" class="nav-link">並び替え</a></li>
         </ul>
         <div class="my-4">
             <div v-on:click="togglePlaylist" class="togglebutton h6 text-white-50">クリップする動画を選択してください</div>
@@ -154,11 +154,11 @@
             <table class="table table-sm text-light">
                 <tbody>
                     <tr v-for="(c, index) in cliplist.cliplist_clips">
-                      <td class="h6">{{ c.comment }}</td>
-                      <td><button class="btn btn-sm btn-info" v-on:click="upOrderClip(index)">↑</button></td>
-                      <td><button class="btn btn-sm btn-info" v-on:click="downOrderClip(index)">↓</button</td>
-                      <td><button class="btn btn-sm btn-primary" v-on:click="editClip(index)">編集</button></td>
-                      <td><button class="btn btn-sm btn-danger" v-on:click="deleteClip(index)">削除</button></td>
+                        <td class="h6">{{ c.comment }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" v-on:click="editClip(index)">編集</button>
+                            <button class="btn btn-sm btn-danger" v-on:click="deleteClip(index)">削除</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -534,28 +534,6 @@ iframe {
             deleteClip(idx) {
                 this.cliplist.cliplist_clips.splice(idx, 1)
                 this.update()
-            },
-            upOrderClip(index) {
-                if(index > 0) {
-                    var idx1 = index
-                    var idx2 = index - 1
-                    var clip1 = JSON.parse(JSON.stringify(this.cliplist.cliplist_clips[idx1]))
-                    var clip2 = JSON.parse(JSON.stringify(this.cliplist.cliplist_clips[idx2]))
-                    this.$set(this.cliplist.cliplist_clips, idx1, clip2)
-                    this.$set(this.cliplist.cliplist_clips, idx2, clip1)
-                    this.update()
-                }
-            },
-            downOrderClip(index) {
-                if((this.cliplist.cliplist_clips.length + 1) > index) {
-                    var idx1 = index
-                    var idx2 = index + 1
-                    var clip1 = JSON.parse(JSON.stringify(this.cliplist.cliplist_clips[idx1]))
-                    var clip2 = JSON.parse(JSON.stringify(this.cliplist.cliplist_clips[idx2]))
-                    this.$set(this.cliplist.cliplist_clips, idx1, clip2)
-                    this.$set(this.cliplist.cliplist_clips, idx2, clip1)
-                    this.update()
-                }
             },
             update() {
                 window.axios.post('/api/cliplist/' + this.cliplist_id + '/clip', {

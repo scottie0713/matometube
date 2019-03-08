@@ -32,7 +32,7 @@ class CliplistController extends Controller
     public function getByChannelId($channel_id)
     {
         $query = Cliplist::latest()->where('channel_id', $channel_id)->where('is_delete', false);
-        $cliplists = $query->paginate(20);
+        $cliplists = $query->paginate(10);
         
         return CliplistResource::collection($cliplists);
     }

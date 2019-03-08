@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid">
-        <h5 class="text-light my-2">{{ cliplist.title }} 編集</h5>
+        <h5 class="text-light my-2"><a class="text-light" :href="'/'+ platform + '/' + platform_channel_id">&lt;</a>&nbsp;{{ cliplist.title }}</h5>
         <ul class="nav nav-pills">
           <li class="nav-item"><div class="nav-link active">名前編集</div></li>
-          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit2'" class="nav-link">クリップ編集</a></li>
-          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit3'" class="nav-link">クリップ並び替え</a></li>
+          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit2'" class="nav-link">クリップ</a></li>
+          <li class="nav-item"><a :href="'/' + platform + '/' + platform_channel_id + '/cliplist/' + cliplist_id + '/edit3'" class="nav-link">並べ替え</a></li>
         </ul>
         <div class="my-4">
             <div class="togglebutton h6 text-white-50">タイトルを編集できます</div>
@@ -24,10 +24,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-6">
                         <button type="button" class="btn btn-outline-info" v-on:click="updateCliplist()">保存</button>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6">
                         <button type="button" class="btn btn-outline-danger" v-on:click="deleteCliplist()">削除</button>
                     </div>
                 </div>
